@@ -36,7 +36,7 @@ class HomeController extends Controller
     /* Manager  controll System */
     public function managerHome()
     {
-        return view('managerHome');
+        return view('teacherHome');
     }
 
 }

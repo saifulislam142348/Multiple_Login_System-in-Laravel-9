@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,27 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
   
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
 });
+
+
+/*------------------------------------------
+--------------------------------------------
+All Students  from Routes List
+--------------------------------------------
+--------------------------------------------*/
+
+route::get('/StudentDashboard',[StudentController::class, 'StudentDashboard'])->name('Dashboard');
+route::get('/StudentPayment',[StudentController::class, 'StudentPayment'])->name('Payment');
+route::get('/StudentPaymentProcess',[StudentController::class, 'StudentPaymentProcess'])->name('PaymentProcess');
+route::get('/StudentRegistetion',[StudentController::class, 'StudentRegistetion'])->name('Registetion');
+route::get('/StudentContact',[StudentController::class, 'StudentContact'])->name('Contact');
+
+/*------------------------------------------
+--------------------------------------------
+All Students   store Routes List
+--------------------------------------------
+--------------------------------------------*/
+route::get('/StudentDashboardStore',[StudentController::class, 'StudentDashboardStore']);
+route::get('/StudentPaymentStore',[StudentController::class, 'StudentPaymentStore']);
+route::get('/StudentPayment',[StudentController::class, 'StudentPaymentProcessStore']);
+route::get('/StudentRegistetionStore',[StudentController::class, 'StudentRegistetionStore']);
+route::get('/StudentContactStore',[StudentController::class, 'StudentContactStore']);
