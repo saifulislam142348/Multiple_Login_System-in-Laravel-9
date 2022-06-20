@@ -67,29 +67,32 @@
            <table class="table">
             <thead>
                 <tr>
+                 
                      <th> Department Id:-</th>
+                     
                      <th> DepartmentCourse :-</th>
                      
                      
                    
                 </tr>
                 <tr>
-                  
-                        @foreach ($course as $item)
-                            <td>{{$item->department_id}}</td>
-                          
+                    @foreach ($course as $item)
+                     <tr>
+                        <th>{{$item->department_id}}</th>
+
+                        <th>{{$item->department->name}}</th>
+                     
+                     
+                        <td>{{$item->name}}</td>
+                     
+                   
+                    </tr> 
                         
                         @endforeach
                     
                 </tr>
                 <tr>
                   
-                        @foreach ($course as $item)
-                            <td>{{$item->name}}</td>
-                          
-                        
-                        @endforeach
-                    
                 </tr>
             </thead>
            </table>
