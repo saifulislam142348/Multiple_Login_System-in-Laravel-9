@@ -25,9 +25,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
+         
                 <a href="{{route('home')}}" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
-                <a href="{{route('home')}}" class="list-group-item text-danger active "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
-                 <a href="{{route('StudentShow')}}" class="list-group-item text-success  "><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
+                 <a href="" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
                     <div class=" dropdown-toggle list-group-item text-success"   data-bs-toggle="dropdown" >
@@ -41,11 +41,11 @@
 
                     <div class="dropdown">
                         <div  class="dropdown-toggle list-group-item text-success"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="glyphicon glyphicon-education">Course Add</span>
+                            <span class="glyphicon glyphicon-education active ">Course Add</span>
                         </div>>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                           <li><a class="dropdown-item nav-link" href="{{route('AdminCourseAdd')}}">Create </a></li>
-                          <li><a class="dropdown-item nav-link" href="{{route('AdminCourseManage')}}">Manage</a></li>
+                          <li><a class="dropdown-item nav-link" href="{{route('AdminDeptManage')}}">Manage</a></li>
                          
                         </ul>
           
@@ -63,8 +63,7 @@
             </div>   
             <div class="col-sm-10">
 
-
-              home
+couer add
             </div>
                 </div>
                 
