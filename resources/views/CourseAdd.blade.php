@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-sm-2">
          
-                <a href="{{route('home')}}" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
+                <a href="#" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
                  <a href="" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
@@ -63,8 +63,33 @@
             </div>   
             <div class="col-sm-10">
 
-couer add
+                <form action="{{route('CourseStore')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+           
+                    <div class="form-group mb-3">
+                        <label for="">Student Dept Name:</label>
+                        <select class="form-select form-select-sm" name="department_id" >
+                            <option selected>Open this select menu</option>
+                          @foreach ($department as $item)
+                          <option  value="{{ $item->id}}">{{ $item->name}}</option>
+                          @endforeach
+                        
+                          </select>
+                      
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Student Course  Name:</label>
+                      <input type="text" name="name" class="text-primary" >
+                    
+                    </div>
+                    <div class="form-group mb-3">
+                      
+                      <input type="submit" class="btn btn-success" value="Course Add ">
+                    </div>
+                  
+                </form>
             </div>
+            <a class="btn btn-success" href="{{route('CourseView')}}"> Course View</a>
                 </div>
                 
             </div>

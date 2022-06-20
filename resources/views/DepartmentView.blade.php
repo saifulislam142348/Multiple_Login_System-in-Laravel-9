@@ -63,20 +63,26 @@
             </div>   
             <div class="col-sm-10">
 
-                @if (session('status'))
-                <h6 class="alert alert-success">{{ session('status') }}</h6>
-            @endif
-                <form action="{{route('AdminDeptAddStore')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-           
-                    <div class="form-group mb-3">
-                        <label > Departmentt Name:</label>
-                      <input type="text" name="name" class="text-primary" >
-                      <input type="submit" class="btn btn-success" value="Department Add ">
-                    </div>
-                  
-                </form>
-                <a  class="btn btn-success" href="{{route('DepartmentView')}}" >Department View</a>
+
+               
+
+                <table>
+
+                    <thead>
+                  <tr> 
+                    <th><b>Department Name:-</b></th>
+                </tr>
+                  @foreach ($department as $item)
+                  <tr> 
+                    <td><b>{{$item->name}}</b></td>
+                </tr>  
+                  @endforeach
+                
+
+                       
+
+                    </thead>
+                </table>
             </div>
                 </div>
                 

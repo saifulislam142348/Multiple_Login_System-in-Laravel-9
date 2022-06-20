@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
+use App\Models\Student;
+use App\Models\Payment;
+use App\Models\Course;
 
 class StudentController extends Controller
 {
+
+    
+/*------------------------------------------
+--------------------------------------------
+  Routes List
+--------------------------------------------
+--------------------------------------------*/
     public function StudentDashboard(){
       
         return view('stdDashboard');
@@ -72,7 +83,9 @@ return view('DeptManage');
 }
 public function AdminCourseAdd(){
 
-return view('CourseAdd');
+    $department= Department::all();
+
+    return view('CourseAdd',compact('department'));
     
 }
 public function AdminCoursetManage(){
@@ -81,4 +94,55 @@ return view('Coursemanage');
     
 }
 
+
+/*------------------------------------------
+--------------------------------------------
+ Admin  store Routes List
+--------------------------------------------
+--------------------------------------------*/
+public function AdminDeptAddStore(Request $request){
+
+$Department= new Department();
+$Department->name=$request->input('name');
+$Department->save();
+return redirect()->back()->with('status','Department Add successfully');
+
+    
+}
+public function CourseStore(Request $request){
+$course= new course();
+$course->name=$request->input('name');
+$course->department_id=$request->input('department_id');
+
+
+$course->save();
+return redirect()->back()->with('status','Course  Add successfully');
+
+    
+}
+
+
+/*------------------------------------------
+--------------------------------------------
+ Department view  
+--------------------------------------------
+--------------------------------------------*/
+
+public function DepartmentView(){
+    $department= Department::all();
+    return view('DepartmentView',compact('department'));
+
+  }
+/*------------------------------------------
+--------------------------------------------
+ Department view  
+--------------------------------------------
+--------------------------------------------*/
+
+public function CourseView(){
+
+ $course=course::all();
+ return view('CourseView',compact('course'));
+
+  }
 }

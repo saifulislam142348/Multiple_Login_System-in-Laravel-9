@@ -64,7 +64,35 @@
             <div class="col-sm-10">
 
 
-             course view 
+           <table class="table">
+            <thead>
+                <tr>
+                     <th> Department Id:-</th>
+                     <th> DepartmentCourse :-</th>
+                     
+                     
+                   
+                </tr>
+                <tr>
+                  
+                        @foreach ($course as $item)
+                            <td>{{$item->department_id}}</td>
+                          
+                        
+                        @endforeach
+                    
+                </tr>
+                <tr>
+                  
+                        @foreach ($course as $item)
+                            <td>{{$item->name}}</td>
+                          
+                        
+                        @endforeach
+                    
+                </tr>
+            </thead>
+           </table>
             </div>
                 </div>
                 

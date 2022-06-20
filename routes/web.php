@@ -85,15 +85,17 @@ route::get('/StudentContactStore',[StudentController::class, 'StudentContactStor
 
 /*------------------------------------------
 --------------------------------------------
- Admin  Routes List
+ Admin  Routes List view
 --------------------------------------------
 --------------------------------------------*/
-route::get('/AdminStudentDetails',[StudentController::class, 'AdminStudentShow'])->name('StudentShow');
-route::get('/AdminDeptAdd',[StudentController::class, 'AdminDeptAdd'])->name('AdminDeptAdd');
-route::get('/AdminDeptShow',[StudentController::class, 'AdminDeptShow'])->name('AdminDeptShow');
-route::get('/AdminDeptManage',[StudentController::class, 'AdminDeptManage'])->name('AdminDeptManage');
-route::get('/AdminDeptCourseAdd',[StudentController::class, 'AdminCourseAdd'])->name('AdminCourseAdd');
-route::get('/AdminDeptCourseManage',[StudentController::class, 'AdminCoursetManage'])->name('AdminCourseManage');
+route::get('/Admin/Student/Details',[StudentController::class, 'AdminStudentShow'])->name('StudentShow');
+route::get('/Admin/Dept/Add',[StudentController::class, 'AdminDeptAdd'])->name('AdminDeptAdd');
+route::get('/Admin/Dept/Show',[StudentController::class, 'AdminDeptShow'])->name('AdminDeptShow');
+route::get('/Department/View',[StudentController::class, 'DepartmentView'])->name('DepartmentView');
+route::get('/Admin/DeptManage',[StudentController::class, 'AdminDeptManage'])->name('AdminDeptManage');
+route::get('/Course/create',[StudentController::class, 'AdminCourseAdd'])->name('AdminCourseAdd');
+route::get('/Admin/CourseManage',[StudentController::class, 'AdminCoursetManage'])->name('AdminCourseManage');
+route::get('/Admin/CourseView',[StudentController::class, 'CourseView'])->name('CourseView');
 
 
 /*------------------------------------------
@@ -102,10 +104,10 @@ route::get('/AdminDeptCourseManage',[StudentController::class, 'AdminCoursetMana
 --------------------------------------------
 --------------------------------------------*/
 
-route::get('/AdminStudentDetailsStore',[StudentController::class, 'AdminStudentShowStore'])->name('StudentShowStore');
-route::get('/AdminDeptAddStore',[StudentController::class, 'AdminDeptAddStore'])->name('AdminDeptAddStore');
-route::get('/AdminDeptShowStore',[StudentController::class, 'AdminDeptShowStore'])->name('AdminDeptShowStore');
-route::get('/AdminDeptManageStore',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptManageStore');
-route::get('/AdminDeptCourseAddStore',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptCourseAddStore');
-route::get('/AdminDeptCourseManageStore',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptCourseManageStore');
+route::post('/Admin/Student/Details/Store',[StudentController::class, 'AdminStudentShowStore'])->name('StudentShowStore');
+route::post('/Admin/Dept/Add/Store',[StudentController::class, 'AdminDeptAddStore'])->name('AdminDeptAddStore');
+route::post('/Admin/Dept/Store',[StudentController::class, 'AdminDeptShowStore'])->name('AdminDeptShowStore');
+route::post('/Admin/Dept/Manage/Store',[StudentController::class, 'AdminDeptManageStore'])->name('departmentManage');
+route::post('/Admin/Course/Store',[StudentController::class, 'CourseStore'])->name('CourseStore');
+route::post('/Admin/CourseManage/Store',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptCourseManageStore');
 
