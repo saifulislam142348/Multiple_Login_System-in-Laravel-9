@@ -72,11 +72,26 @@ class StudentController extends Controller
 
 
         
-                                   }
+  }
+   /*------------------------------------------
+--------------------------------------------
+ student course Routes List
+--------------------------------------------
+--------------------------------------------*/
     public function StudentCourse ()
                                    {
           return view('studentCourse');
    }
+   /*------------------------------------------
+--------------------------------------------
+ Department page  Routes List
+--------------------------------------------
+--------------------------------------------*/
+    public function DepartmentAdd()
+                                   {
+          return view('DeptAdd');
+   }
+
      public function PaymentProcess(){
      
     $student= Student::all();
@@ -86,7 +101,7 @@ class StudentController extends Controller
      
   
     
-return view('');
+
         
 }
 /*------------------------------------------
@@ -97,7 +112,10 @@ return view('');
 
 public function AdminStudentShow(){
 
-return view('AdminViewStudent');
+  $student=student::all();
+ return view('AdminViewStudent',compact('student'));
+
+
 
 }
 
@@ -194,6 +212,7 @@ public function CourseView(){
   public function RegistetionStore(Request $request){
     $student= new student();
     $student->user_id=Auth::user()->id;
+    $student->name=$request->input('name');
     $student->department_id=$request->input('department_id');
     $student->course_id=$request->input('course_id');
     
@@ -204,6 +223,53 @@ public function CourseView(){
         
     }
 
+      /*------------------------------------------
+--------------------------------------------
+ student  delete store
+--------------------------------------------
+--------------------------------------------*/
+public function destroy($id){
+
+  $student= student::find($id);
+  $student->delete();
+  return redirect()->back()->with('status','student data delete successfully');
+}
+
+
+
+      /*------------------------------------------
+--------------------------------------------
+ student    all course view
+--------------------------------------------
+--------------------------------------------*/
+public function DepartmentCourse ()
+{
+
+
+
+    return view('AllCourseView');
+
+}
+ /*------------------------------------------
+--------------------------------------------
+ student    all course view
+--------------------------------------------
+--------------------------------------------*/
+public function StudentCourseview($id)
+{
+  $student= student::find($id);
+
+
+    return view('AllCourseView',compact('student'));
+
+}
+
+
+      /*------------------------------------------
+--------------------------------------------
+ alll store
+--------------------------------------------
+--------------------------------------------*/
       /*------------------------------------------
 --------------------------------------------
  student  payment store

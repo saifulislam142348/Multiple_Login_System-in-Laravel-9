@@ -25,8 +25,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
-                <a href="{{route('home')}}" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
-                <a href="{{route('home')}}" class="list-group-item text-danger active "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
+               
                  <a href="{{route('StudentShow')}}" class="list-group-item text-success  "><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
@@ -62,9 +61,41 @@
                 </div>
             </div>   
             <div class="col-sm-10">
+<table class="table bordered">
+    <thead>
 
+      
+            <tr>
+                <th>id</th>
+            <td>
+                {{ Auth::user()->id }}
+            </td>
+            </tr>
+           <tr>
+            <th>name</th>
+            <td>
+                {{ Auth::user()->name }}
+              
+            </td> 
+           </tr>
+            <tr>
+                <th>email</th>
+                <td>
+                    {{ Auth::user()->email }}
+                  
+                </td>
+            </tr>
+            
+            
+              
+            
+           
+        
+       
+    </thead>
+</table>
 
-              home
+              
             </div>
                 </div>
                 

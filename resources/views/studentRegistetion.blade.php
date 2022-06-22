@@ -49,7 +49,7 @@
                    
                             <div class="form-group mb-3">
                                 <label for="">Name:</label>
-                               <th>    {{ Auth::user()->name}}</th>
+                               <input type="text" value=" {{ Auth::user()->name}}"  name="name"</th>
                             </div>
                             <div class="form-group mb-3">
                                 <label> Email</label>

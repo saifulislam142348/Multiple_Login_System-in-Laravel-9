@@ -27,7 +27,7 @@
             <div class="col-sm-2">
          
                 <a href="{{route('home')}}" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
-                 <a href="" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
+                 <a href="{{route('StudentShow')}}" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
                     <div class=" dropdown-toggle list-group-item text-success"   data-bs-toggle="dropdown" >
@@ -67,10 +67,10 @@
                 <h6 class="alert alert-success">{{ session('status') }}</h6>
             @endif
             <ul>
-                @foreach ($errors->all() as $error)
-                   <li class="text-danger">{{ $error }}</li>
-                @endforeach
-             </ul>
+                    @foreach ($errors->all() as $error)
+                       <li class="text-danger">{{ $error }}</li>
+                    @endforeach
+                 </ul>
                 <form action="{{route('AdminDeptAddStore')}}" method="POST" enctype="multipart/form-data">
                     @csrf
            

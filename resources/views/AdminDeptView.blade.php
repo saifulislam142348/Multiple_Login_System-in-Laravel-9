@@ -25,9 +25,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
-                <a href="{{route('home')}}" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
+             
   
-                 <a href="" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
+                 <a href="{{route('StudentShow')}}" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
                     <div class=" dropdown-toggle list-group-item text-success"   data-bs-toggle="dropdown" >

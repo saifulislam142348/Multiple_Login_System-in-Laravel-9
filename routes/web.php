@@ -89,7 +89,7 @@ route::post('/Student/ContactStore',[StudentController::class, 'StudentContactSt
 --------------------------------------------
 --------------------------------------------*/
 route::get('/Admin/Student/Details',[StudentController::class, 'AdminStudentShow'])->name('StudentShow');
-route::get('/Admin/Dept/Add',[StudentController::class, 'AdminDeptAdd'])->name('AdminDeptAdd');
+route::get('/Admin/Dept/Add',[StudentController::class, 'DepartmentAdd'])->name('AdminDeptAdd');
 route::get('/Admin/Dept/Show',[StudentController::class, 'AdminDeptShow'])->name('AdminDeptShow');
 route::get('/Department/View',[StudentController::class, 'DepartmentView'])->name('DepartmentView');
 route::get('/Admin/DeptManage',[StudentController::class, 'AdminDeptManage'])->name('AdminDeptManage');
@@ -98,6 +98,12 @@ route::get('/Admin/CourseManage',[StudentController::class, 'AdminCoursetManage'
 route::get('/Admin/CourseView',[StudentController::class, 'CourseView'])->name('CourseView');
 
 
+/*------------------------------------------
+--------------------------------------------
+ Admin panel student delete Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::delete('/Student/Registetion/{id}', [StudentController::class, 'destroy'])->name('delete');
 /*------------------------------------------
 --------------------------------------------
  Admin  store Routes List
@@ -111,3 +117,9 @@ route::post('/Admin/Dept/ManageStore',[StudentController::class, 'AdminDeptManag
 route::post('/Admin/CourseStore',[StudentController::class, 'CourseStore'])->name('CourseStore');
 route::post('/Admin/CourseManageStore',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptCourseManageStore');
 
+/*------------------------------------------
+--------------------------------------------
+  student all couse Routes List
+--------------------------------------------
+--------------------------------------------*/
+route::get('/student/all/course/view/{id}',[StudentController::class, 'StudentCourseview']);

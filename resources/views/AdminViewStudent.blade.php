@@ -25,9 +25,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
-                <a href="{{route('home')}}" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
+               
   
-                 <a href="" class="list-group-item text-success active "><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
+                 <a href="" class="list-group-item text-danger active "><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
                     <div class=" dropdown-toggle list-group-item text-success"   data-bs-toggle="dropdown" >
@@ -42,7 +42,7 @@
                     <div class="dropdown">
                         <div  class="dropdown-toggle list-group-item text-success"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="glyphicon glyphicon-education">Course Add</span>
-                        </div>>
+                        </div>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                           <li><a class="dropdown-item nav-link" href="{{route('AdminCourseAdd')}}">Create </a></li>
                           <li><a class="dropdown-item nav-link" href="{{route('AdminDeptManage')}}">Manage</a></li>
@@ -63,8 +63,54 @@
             </div>   
             <div class="col-sm-10">
 
+<div class="container">
+    <div class="jumbotron">
+        <table class="table">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+       
+        <th>Department</th>
+        
+        <th>Status</th>
+        <th>Action</th>
+        <th>All Course View</th>
+        <th>All Payment View</th>
+    </tr>
+    <tr>
+        @foreach ($student as $item)
+            
+      
+        <td>{{$item->id}}</td>
+        <td>
+            {{$item->name}}
+        </td>
+        
+        <td>{{$item->department->name}}</td>
+        <td>
+            <a  class="btn btn-success" href="">active</a>
+        </td>
+        <td>
+            <a  class="btn btn-success" href="{{url('Student/Edit/'.$item->id)}}">Edit</a>
+            <a  class="btn btn-danger" href="{{url('delete/'.$item->id)}}">Delete</a>
+        </td>
+      
+        <td>
+            <a class="btn btn-primary" href="{{url('/student/all/course/view/'.$item->id)}}">Click here</a>
+        </td>
+        <td>
+            <a class="btn btn-primary" href="">Click here</a>
+        </td>
+    </tr>
+    @endforeach
+</thead>
+        </table>
 
-             student   view
+        
+    </div>
+    </div>
+            
             </div>
                 </div>
                 

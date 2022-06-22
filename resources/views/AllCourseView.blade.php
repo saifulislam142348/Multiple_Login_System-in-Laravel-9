@@ -25,16 +25,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
-         
-                <a href="#" class="list-group-item text-danger "><i class="glyphicon glyphicon-envelope text-primary"></i> home</a>
-                 <a href="{{route('StudentShow')}}" class="list-group-item text-success"><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
+               
+  
+                 <a href="{{route('StudentShow')}}" class="list-group-item text-danger active "><i class="glyphicon glyphicon-envelope text-primary"></i> student details</a>
          
                 <div class="dropdown">
                     <div class=" dropdown-toggle list-group-item text-success"   data-bs-toggle="dropdown" >
                         <span class="glyphicon glyphicon-education">Dept. Add</span>
                     </div>
-                    <ul class="dropdown-menu ">
-                      <li><a class="dropdown-item nav-link active " href="{{route('AdminDeptAdd')}}">Create </a></li>
+                    <ul class="dropdown-menu " >
+                      <li><a class="dropdown-item nav-link" href="{{route('AdminDeptAdd')}}">Create </a></li>
                       <li><a class="dropdown-item nav-link" href="{{route('AdminDeptManage')}}">Manage</a></li>
                      
                     </ul>
@@ -62,27 +62,39 @@
                 </div>
             </div>   
             <div class="col-sm-10">
-
-
-               
-
-                <table class="table ">
-
-                    <thead>
-                  <tr> 
-                    <th><b>Department Name:-</b></th>
-                </tr>
-                  @foreach ($department as $item)
-                  <tr> 
-                    <td><b>{{$item->name}}</b></td>
-                </tr>  
-                  @endforeach
+<div class="container">
+    <div class="jumbotron">
+        <table class="table">
+<thead>
+    
+      <tr>
+        <b>
+            <th>Department</th>
+            <th>{{$student->department->name}}</th>
+        </b>
+      
+        
+      </tr>
+        <tr>
+            @foreach ($student->course as $item)
+            <td> {{$item->name}}</td>
+            @endforeach
+           
+           
                 
+    
+            
+        </tr>
+        
 
-                       
+  
+</thead>
+        </table>
 
-                    </thead>
-                </table>
+        
+    </div>
+    </div>
+            
             </div>
                 </div>
                 

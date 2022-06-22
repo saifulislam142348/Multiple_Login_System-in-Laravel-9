@@ -37,7 +37,9 @@
           </div>
           <div class="form-group mb-3">
              <tr> <label ><b>Student Dept:-.</b></label></tr>
-              <td>Cse</td>
+              <td>
+            cse
+              </td>
           </div>
           <div class="form-group mb-3">
             <tr> <label ><b>Student Id:-.</b></label></tr>
