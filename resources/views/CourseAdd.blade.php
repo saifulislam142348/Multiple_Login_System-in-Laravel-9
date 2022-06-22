@@ -62,6 +62,14 @@
                 </div>
             </div>   
             <div class="col-sm-10">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                       <li class="text-danger">{{ $error }}</li>
+                    @endforeach
+                 </ul>
+                 @if (session('status'))
+                 <h6 class="alert alert-success">{{ session('status') }}</h6>
+             @endif
 
                 <form action="{{route('CourseStore')}}" method="POST" enctype="multipart/form-data">
                     @csrf

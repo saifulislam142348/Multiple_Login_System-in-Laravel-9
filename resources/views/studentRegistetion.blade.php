@@ -6,6 +6,7 @@
 
 
     <h1>Student Registetion From!</h1>
+   
 
 <div class="container">
     <div class="row">
@@ -26,7 +27,7 @@
 
 </div>
 <div class="col-md-8">
-
+ 
     <div class="container">
    
         <div class="row justify-content-center">
@@ -35,7 +36,8 @@
             @if (session('status'))
             <h6 class="alert alert-success">{{ session('status') }}</h6>
             @endif
-    
+           
+            
                 <div class="card">
                     <div class="card-header">
                         <h4>Registration From</h4>

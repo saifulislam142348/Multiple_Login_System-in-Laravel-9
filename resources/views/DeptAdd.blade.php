@@ -66,6 +66,11 @@
                 @if (session('status'))
                 <h6 class="alert alert-success">{{ session('status') }}</h6>
             @endif
+            <ul>
+                @foreach ($errors->all() as $error)
+                   <li class="text-danger">{{ $error }}</li>
+                @endforeach
+             </ul>
                 <form action="{{route('AdminDeptAddStore')}}" method="POST" enctype="multipart/form-data">
                     @csrf
            

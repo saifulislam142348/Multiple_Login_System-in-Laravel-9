@@ -27,8 +27,10 @@
     <div class="container">
 
         <div class="card-body">
-    
-            <form action="{{ url('paymentstore') }}" method="POST" enctype="multipart/form-data">
+            @if (session('status'))
+            <h6 class="alert alert-success">{{ session('status') }}</h6>
+        @endif
+            <form action="{{ route('paymentstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
        
                 <div class="form-group mb-3">
@@ -43,14 +45,15 @@
                     <tr> <label ><b> ID:-</b></label>
                     </tr>
                     @foreach ($student as $item)
-                    <td name="student_id" value="{{ $item->id}}">{{ $item->id}} </td> 
+                    <input type="number" name="student_id" value="{{ $item->id}}">
+                    <b>{{ $item->id}}</b> 
                     @endforeach
                      
                  </div>
                  <div class="form-group mb-3">
                     <tr> <label ><b>Student Dept:-.</b></label></tr>
                     @foreach ($student as $item)
-                    <td name="student_id" value="">{{ $item->id}} </td> 
+                    <td name="student_id" value="">{{ $item->department_id}} </td> 
                     @endforeach
                   
                      <td>cse</td>
@@ -64,6 +67,11 @@
                     <label ><b> Payment Now :-</b></label>
                     <input type="text" name="amount" class="form-control">
                 </div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                       <li class="text-danger">{{ $error }}</li>
+                    @endforeach
+                 </ul>
               
                 <div class="form-group mb-3">
                     <button type="submit" class="btn btn-primary">Payment Now </button>

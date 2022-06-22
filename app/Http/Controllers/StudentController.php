@@ -54,6 +54,8 @@ class StudentController extends Controller
 
       return view('studentPayment',compact('student'));
       
+      
+      
         
 
 
@@ -133,6 +135,11 @@ public function AdminDeptAddStore(Request $request){
 
 $Department= new Department();
 $Department->name=$request->input('name');
+$rules=[
+  'name'=>'required',
+  
+];
+$this->validate($request,$rules);
 $Department->save();
 return redirect()->back()->with('status','Department Add successfully');
 
@@ -143,7 +150,11 @@ $course= new course();
 $course->name=$request->input('name');
 $course->department_id=$request->input('department_id');
 
-
+$rules=[
+  'name'=>'required',
+  
+];
+$this->validate($request,$rules);
 $course->save();
 return redirect()->back()->with('status','Course  Add successfully');
 
@@ -186,7 +197,7 @@ public function CourseView(){
     $student->department_id=$request->input('department_id');
     $student->course_id=$request->input('course_id');
     
-    
+   $this->validate($request,['department_id'=>'required','course_id'=>'required']);
     $student->save();
     return redirect()->back()->with('status','Course  Add successfully');
     
@@ -204,7 +215,11 @@ public function CourseView(){
  
     $payment->student_id=$request->input('student_id');
     $payment->amount=$request->input('amount');
-    
+    $rules=[
+      'student_id'=>'required',
+      'amount'=>'required'
+  ];
+  $this->validate($request,$rules);
     
     $payment->save();
     return redirect()->back()->with('status','payment successfully');
