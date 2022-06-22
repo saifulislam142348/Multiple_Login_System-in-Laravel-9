@@ -38,46 +38,50 @@
     
                 <div class="card">
                     <div class="card-header">
-                        <h4>Add Student</h4>
+                        <h4>Registration From</h4>
                     </div>
                     <div class="card-body">
     
-                        <form action="{{ url('insert-info') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('registationstore') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                    
                             <div class="form-group mb-3">
                                 <label for="">Name:</label>
-                               <th>saiful</th>
+                               <th>    {{ Auth::user()->name}}</th>
                             </div>
                             <div class="form-group mb-3">
                                 <label> Email</label>
-                                <th>saiful@gmail</th>
+                                {{ Auth::user()->email }}
                             </div>
+                           
                             <div class="form-group mb-3">
-                                <label for="">Semester select :</label>
-                            <select class="form-select form-select-sm mb-3">
+                            <label >Department Name:</label><br>
+                              <select class="form-select form-select-sm mb-3" name="department_id" id="department">
                                 <option selected>Open this select menu</option>
-                                <option value="1">1st Semester</option>
-                                <option value="2">2nd Semester</option>
-                                <option value="3">3nd Semester</option>
-                              </select>
-                            </div>
-                            <div class="form-group mb-3">
-                            <label >dept:</label><br>
-                              <select class="form-select form-select-sm mb-3">
-                                <option selected>Open this select menu</option>
-                                <option value="1">CSE</option>
-                                <option value="2">EEE</option>
-                                <option value="3">ENG</option>
+                                @foreach ($department as $item)
+                               
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                              
+                                
                               </select>
                             </div>
                             <div class="form-group mb-3">
                             <label for="">Course add</label>
-                            <select class="form-select form-select-sm mb-3">
+                            <select class="form-select form-select-sm mb-3" name="course_id" id="course">
                                 <option selected>Open this select menu</option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd </option>
-                                <option value="3">3nd </option>
+ 
+                                @foreach ($department as $item)
+                                <optgroup label="{{$item->name}}">
+                                    @foreach($item->course as $courses)
+                                        <option value="{{$courses->id}}">{{$courses->name}}</option>
+                                    @endforeach
+                                </optgroup>
+                          
+                                 
+                             @endforeach
+                                
+                              
                               </select>
                             </div>
 
@@ -88,7 +92,7 @@
                             </div>
     
                         </form>
-    
+                     
                     </div>
                 </div>
             </div>

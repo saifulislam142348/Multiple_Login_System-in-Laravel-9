@@ -28,22 +28,28 @@
 
         <div class="form-group mb-3">
             <tr> <label><b>Student Name:-</b></label></tr>
-             <td>saiful</td>
+             <td>    {{ Auth::user()->name }}</td>
          </div>
          
           <div class="form-group mb-3">
-             <tr> <label ><b>Student ID:-</b></label></tr>
-              <td>353</td>
+             <tr> <label ><b>Student email:-</b></label></tr>
+              <td>    {{ Auth::user()->email }}</td>
           </div>
           <div class="form-group mb-3">
              <tr> <label ><b>Student Dept:-.</b></label></tr>
               <td>Cse</td>
           </div>
-       
           <div class="form-group mb-3">
-             <tr> <label ><b>Student Section:-.</b></label></tr>
-              <td>5</td>
-          </div>
+            <tr> <label ><b>Student Id:-.</b></label></tr>
+             <td>
+              @foreach ($student as $item)
+                  {{$item->id}}
+              @endforeach
+          
+             </td>
+         </div>
+       
+         
        
    
  

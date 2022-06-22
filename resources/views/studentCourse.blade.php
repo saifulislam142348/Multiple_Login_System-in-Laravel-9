@@ -30,23 +30,19 @@
 
         <div class="form-group mb-3">
            <tr> <label><b>Student Name:-</b></label></tr>
-            <td>saiful</td>
+            <td> {{ Auth::user()->name }}</td>
         </div>
         
          <div class="form-group mb-3">
             <tr> <label ><b>Student ID:-</b></label></tr>
-             <td>353</td>
+             <td> {{ Auth::user()->id }}</td>
          </div>
          <div class="form-group mb-3">
             <tr> <label ><b>Student Dept:-.</b></label></tr>
              <td>Cse</td>
          </div>
       
-         <div class="form-group mb-3">
-            <tr> <label ><b>Student Section:-.</b></label></tr>
-             <td>5</td>
-         </div>
-      
+        
   
 
          <div class="jumbotron">

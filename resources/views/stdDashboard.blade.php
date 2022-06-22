@@ -28,25 +28,23 @@
     
         <div class="form-group mb-3">
            <tr> <label><b>Student Name:-</b></label></tr>
-            <td>saiful</td>
+            <td>    {{ Auth::user()->name }}</td>
         </div>
         <div class="form-group mb-3">
             <tr> 
                 <label ><b>Email:-</b></label>
             </tr>
-             <td>saiful@gmail.com</td>
+             <td>    {{ Auth::user()->email }}</td>
          </div>
          <div class="form-group mb-3">
-            <tr> 
-                <label ><b>ID:-</b></label>
-            </tr>
-             <td>353</td>
+           
          </div>
          <div class="form-group mb-3">
             <tr> 
                 <label ><b>Dept:-.</b></label>
+                
             </tr>
-             <td>Cse</td>
+          ccc
          </div>
       
          <div class="form-group mb-3">

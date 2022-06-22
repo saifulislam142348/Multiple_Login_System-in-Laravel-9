@@ -28,24 +28,32 @@
 
         <div class="card-body">
     
-            <form action="{{ url('') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('paymentstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
        
                 <div class="form-group mb-3">
                    <tr> <label><b>Name:-</b></label></tr>
-                    <td>saiful</td>
+                    <td> {{ Auth::user()->name}}</td>
                 </div>
                 <div class="form-group mb-3">
                     <tr> <label ><b>Email:-</b></label></tr>
-                     <td>saiful@gmail.com</td>
+                     <td> {{ Auth::user()->email}}</td>
                  </div>
                  <div class="form-group mb-3">
-                    <tr> <label ><b> ID:-</b></label></tr>
-                     <td>353</td>
+                    <tr> <label ><b> ID:-</b></label>
+                    </tr>
+                    @foreach ($student as $item)
+                    <td name="student_id" value="{{ $item->id}}">{{ $item->id}} </td> 
+                    @endforeach
+                     
                  </div>
                  <div class="form-group mb-3">
                     <tr> <label ><b>Student Dept:-.</b></label></tr>
-                     <td>Cse</td>
+                    @foreach ($student as $item)
+                    <td name="student_id" value="">{{ $item->id}} </td> 
+                    @endforeach
+                  
+                     <td>cse</td>
                  </div>
 
                  <div class="form-group mb-3">
@@ -54,7 +62,7 @@
                  </div>
                 <div class="form-group mb-3">
                     <label ><b> Payment Now :-</b></label>
-                    <input type="text" name="payment" class="form-control">
+                    <input type="text" name="amount" class="form-control">
                 </div>
               
                 <div class="form-group mb-3">

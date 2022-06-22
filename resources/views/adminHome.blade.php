@@ -33,7 +33,7 @@
                     <div class=" dropdown-toggle list-group-item text-success"   data-bs-toggle="dropdown" >
                         <span class="glyphicon glyphicon-education">Dept. Add</span>
                     </div>
-                    <ul class="dropdown-menu " >
+                    <ul class="dropdown-menu">
                       <li><a class="dropdown-item nav-link" href="{{route('AdminDeptAdd')}}">Create </a></li>
                       <li><a class="dropdown-item nav-link" href="{{route('AdminDeptManage')}}">Manage</a></li>
                      

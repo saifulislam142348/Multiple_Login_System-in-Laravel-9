@@ -62,23 +62,23 @@ All Students  from Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-route::get('/StudentDashboard',[StudentController::class, 'StudentDashboard'])->name('Dashboard');
-route::get('/StudentPayment',[StudentController::class, 'StudentPayment'])->name('Payment');
-route::get('/StudentPaymentProcess',[StudentController::class, 'StudentPaymentProcess'])->name('PaymentProcess');
-route::get('/StudentRegistetion',[StudentController::class, 'StudentRegistetion'])->name('Registetion');
-route::get('/StudentContact',[StudentController::class, 'StudentContact'])->name('Contact');
-route::get('/StudentCourse',[StudentController::class, 'StudentCourse'])->name('Course');
+route::get('/Student/Dashboard',[StudentController::class, 'StudentDashboard'])->name('Dashboard');
+route::get('/Student/Payment',[StudentController::class, 'StudentPayment'])->name('Payment');
+route::get('/Student/PaymentProcess',[StudentController::class, 'PaymentProcess'])->name('PaymentProcess');
+route::get('/Student/Registetion',[StudentController::class, 'StudentRegistetion'])->name('Registetion');
+route::get('/Student/Contact',[StudentController::class, 'StudentContact'])->name('Contact');
+route::get('/Student/Course',[StudentController::class, 'StudentCourse'])->name('Course');
 
 /*------------------------------------------
 --------------------------------------------
 All Students   store Routes List
 --------------------------------------------
 --------------------------------------------*/
-route::get('/StudentDashboardStore',[StudentController::class, 'StudentDashboardStore']);
-route::get('/StudentPaymentStore',[StudentController::class, 'StudentPaymentStore']);
-route::get('/StudentPaymentProcessStore',[StudentController::class, 'StudentPaymentProcessStore']);
-route::get('/StudentRegistetionStore',[StudentController::class, 'StudentRegistetionStore']);
-route::get('/StudentContactStore',[StudentController::class, 'StudentContactStore']);
+route::post('/Student/DashboardStore',[StudentController::class, 'StudentDashboardStore']);
+route::post('/Student/PaymentStore',[StudentController::class, 'PaymentStore'])->name('paymentstore');
+
+route::post('/Student/Registetion/Store',[StudentController::class, 'RegistetionStore'])->name('registationstore');
+route::post('/Student/ContactStore',[StudentController::class, 'StudentContactStore']);
 
 
 
@@ -104,10 +104,10 @@ route::get('/Admin/CourseView',[StudentController::class, 'CourseView'])->name('
 --------------------------------------------
 --------------------------------------------*/
 
-route::post('/Admin/Student/Details/Store',[StudentController::class, 'AdminStudentShowStore'])->name('StudentShowStore');
-route::post('/Admin/Dept/Add/Store',[StudentController::class, 'AdminDeptAddStore'])->name('AdminDeptAddStore');
-route::post('/Admin/Dept/Store',[StudentController::class, 'AdminDeptShowStore'])->name('AdminDeptShowStore');
-route::post('/Admin/Dept/Manage/Store',[StudentController::class, 'AdminDeptManageStore'])->name('departmentManage');
-route::post('/Admin/Course/Store',[StudentController::class, 'CourseStore'])->name('CourseStore');
-route::post('/Admin/CourseManage/Store',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptCourseManageStore');
+route::post('/Admin/Student/DetailsStore',[StudentController::class, 'AdminStudentShowStore'])->name('StudentShowStore');
+route::post('/Admin/Dept/AddStore',[StudentController::class, 'AdminDeptAddStore'])->name('AdminDeptAddStore');
+route::post('/Admin/DeptStore',[StudentController::class, 'AdminDeptShowStore'])->name('AdminDeptShowStore');
+route::post('/Admin/Dept/ManageStore',[StudentController::class, 'AdminDeptManageStore'])->name('departmentManage');
+route::post('/Admin/CourseStore',[StudentController::class, 'CourseStore'])->name('CourseStore');
+route::post('/Admin/CourseManageStore',[StudentController::class, 'AdminDeptManageStore'])->name('AdminDeptCourseManageStore');
 

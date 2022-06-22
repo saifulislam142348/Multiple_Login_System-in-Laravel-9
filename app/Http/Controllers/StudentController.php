@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\Student;
 use App\Models\Payment;
 use App\Models\Course;
+use Auth;
 
 class StudentController extends Controller
 {
@@ -18,25 +19,51 @@ class StudentController extends Controller
 --------------------------------------------
 --------------------------------------------*/
     public function StudentDashboard(){
+
+      $department= Department::all();
+      return view('stdDashboard' ,compact('department'));
+
       
-        return view('stdDashboard');
+     
 
 
         
     }
-
+/*------------------------------------------
+--------------------------------------------
+ student registetion Routes List
+--------------------------------------------
+--------------------------------------------*/
     public function StudentRegistetion(){
-          return view('studentRegistetion');
+
+      $department= Department::all();
+          return view('studentRegistetion' ,compact('department'));
 
 
     }
+    /*------------------------------------------
+--------------------------------------------
+ student Payment Routes List
+--------------------------------------------
+--------------------------------------------*/
+  
     public function StudentPayment(){
+
+
+      $student= Student::all();
+
+      return view('studentPayment',compact('student'));
       
-        return view('studentPayment');
+        
 
 
         
     }
+    /*------------------------------------------
+--------------------------------------------
+ student contact Routes List
+--------------------------------------------
+--------------------------------------------*/
     public function StudentContact(){
       
          return view('studentContact');
@@ -48,14 +75,23 @@ class StudentController extends Controller
                                    {
           return view('studentCourse');
    }
-     public function StudentPaymentProcess(){
-      
-        return view('studentPaymentProcess');
+     public function PaymentProcess(){
+     
+    $student= Student::all();
 
+    return view('studentPaymentProcess',compact('student'));
+
+     
+  
+    
 return view('');
         
 }
-
+/*------------------------------------------
+--------------------------------------------
+  Admin student registetion show Routes List
+--------------------------------------------
+--------------------------------------------*/
 
 public function AdminStudentShow(){
 
@@ -63,13 +99,6 @@ return view('AdminViewStudent');
 
 }
 
-
-
-public function AdminDeptAdd(){
-
-    return view('DeptAdd');
-    
-}
 
 public function AdminDeptShow(){
 
@@ -135,7 +164,7 @@ public function DepartmentView(){
   }
 /*------------------------------------------
 --------------------------------------------
- Department view  
+ Department course view  
 --------------------------------------------
 --------------------------------------------*/
 
@@ -145,4 +174,46 @@ public function CourseView(){
  return view('CourseView',compact('course'));
 
   }
+
+  /*------------------------------------------
+--------------------------------------------
+ student dept. course store
+--------------------------------------------
+--------------------------------------------*/
+  public function RegistetionStore(Request $request){
+    $student= new student();
+    $student->user_id=Auth::user()->id;
+    $student->department_id=$request->input('department_id');
+    $student->course_id=$request->input('course_id');
+    
+    
+    $student->save();
+    return redirect()->back()->with('status','Course  Add successfully');
+    
+        
+    }
+
+      /*------------------------------------------
+--------------------------------------------
+ student  payment store
+--------------------------------------------
+--------------------------------------------*/
+  public function PaymentStore(Request $request){
+    $payment= new payment();
+ 
+ 
+    $payment->student_id=$request->input('student_id');
+    $payment->amount=$request->input('amount');
+    
+    
+    $payment->save();
+    return redirect()->back()->with('status','payment successfully');
+    
+        
+    }
+
+
+    
+  
 }
+
