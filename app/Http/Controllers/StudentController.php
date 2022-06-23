@@ -21,6 +21,7 @@ class StudentController extends Controller
     public function StudentDashboard(){
 
       $department= Department::all();
+      $student= Student::all();
       return view('stdDashboard' ,compact('department'));
 
       
@@ -51,11 +52,13 @@ class StudentController extends Controller
 
 
       $payment= payment::all();
+      $student= student::all();
+      $user= auth::user();
      
  
      
 
-      return view('studentPayment',compact('payment'));
+      return view('studentPayment',compact('payment','student','user'));
       
       
       
@@ -116,7 +119,11 @@ class StudentController extends Controller
 public function AdminStudentShow(){
 
   $student=student::all();
- return view('AdminViewStudent',compact('student'));
+ 
+ 
+  $payment=payment::all();
+
+ return view('AdminViewStudent',compact('student','payment'));
 
 
 

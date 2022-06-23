@@ -107,7 +107,34 @@
 </thead>
         </table>
 
-        
+        <table class="table"></table>
+<thead>
+    <div class="container">
+        <div class="row">
+          
+            <div class="col-md-4">
+                <div class="jumbottron">
+                    <h1>Total Student</h1>
+                  
+<div class="btn btn-success">{{$student->count()}}</div>
+
+            </div>
+                </div>
+
+            <div class="col-md-4">
+<h1>Payment Counts  </h1>
+<div class="btn btn-success">{{$payment->count()}}</div>
+            </div>
+            <div class="col-md-4">
+<h1>Total Payment </h1>
+<div class="btn btn-success">{{$payment->sum('amount')}}</div>
+            </div>
+        </div>
+    </div>
+    
+
+</thead>     
+</table>
     </div>
     </div>
             

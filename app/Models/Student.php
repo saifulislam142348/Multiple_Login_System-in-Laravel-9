@@ -18,5 +18,9 @@ class Student extends Model
     public function payment(){
         return $this->belongsTo(Payment::class, 'student_id' , 'id' );
     }
+    public function student(){
+        return $this->hasOne(user::class);
+       
+    }
 
 }

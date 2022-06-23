@@ -63,7 +63,7 @@ All Students  from Routes List
 --------------------------------------------*/
 
 route::get('/Student/Dashboard',[StudentController::class, 'StudentDashboard'])->name('Dashboard');
-route::get('/Student/Payment',[StudentController::class, 'StudentPayment'])->name('Payment');
+route::get('/Student/Payment/',[StudentController::class, 'StudentPayment'])->name('Payment');
 route::get('/Student/PaymentProcess',[StudentController::class, 'PaymentProcess'])->name('PaymentProcess');
 route::get('/Student/Registetion',[StudentController::class, 'StudentRegistetion'])->name('Registetion');
 route::get('/Student/Contact',[StudentController::class, 'StudentContact'])->name('Contact');
