@@ -44,9 +44,12 @@
           <div class="form-group mb-3">
             <tr> <label ><b>Student Id:-.</b></label></tr>
              <td>
-              @foreach ($student as $item)
-                  {{$item->id}}
-              @endforeach
+         
+
+                <th>{{auth::user()->id}}</th>
+                
+              
+          
           
              </td>
          </div>
@@ -61,26 +64,37 @@
                      <tr>
                          <th class=" table-secondary">Total Statement </th>
                      </tr>
+                    
                      <tr>
+
+                        
+                     </tr>
+                     <tr>
+                         <tr>
                          <th>date</th>
+                         <th>money</th>
                          
+                         @foreach ($payment as $item)
+                         <th>{{$item->created_at}}</th>
+                         <td>{{$item->amount}}</td>
                        
-                     </tr>
-                     <tr>
+                    
+                       
+                  
+                      
 
-                        <th>2/3/22</th>
-                        <td>500</td>
+                    </tr>
+                     
+                        @endforeach
+         
+           
+             
+                    
+       
+               
+                             
                      </tr>
-                     <tr>
-
-                        <th>2/3/22</th>
-                        <td>500</td>
-                     </tr>
-                     <tr>
-
-                        <th>2/3/22</th>
-                        <td>500</td>
-                     </tr>
+                    
                      
                      
                         
@@ -94,17 +108,28 @@
                      
                          
                    
-                     
-                     <tr>
-                        <th class=" table-secondary">Total Payment </th>
-                        <th class=" table-secondary">500000 </th>
-                    </tr>
-                         
+                  
                    
                      
                  </thead>
+                    
+               
+                     
                 </table>
-         
+                <table>
+                    <tr>
+                        <th class=" table-secondary">Total Payment:- </th>
+                        <th class=" table-secondary">{{$payment->sum('amount')}}</th>
+                    </tr>
+                </table>
+               
+                <table>
+                    <tr>
+                        <th class=" table-secondary">Max Payment:- </th>
+                        <th class=" table-secondary">{{$payment->max('amount')}}</th>
+                    </tr>
+                </table>
+               
          </div>
  
     </div>

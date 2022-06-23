@@ -50,9 +50,12 @@ class StudentController extends Controller
     public function StudentPayment(){
 
 
-      $student= Student::all();
+      $payment= payment::all();
+     
+ 
+     
 
-      return view('studentPayment',compact('student'));
+      return view('studentPayment',compact('payment'));
       
       
       
